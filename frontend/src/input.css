@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans;
+  }
+  h1 {
+    @apply lg:text-5xl text-4xl font-bold tracking-wide;
+  }
+  h2 {
+    @apply lg:text-4xl text-3xl font-bold;
+  }
+  h3 {
+    @apply lg:text-3xl text-xl font-semibold;
+  }
+  h4 {
+    @apply lg:text-xl text-lg font-semibold;
+  }
+  h5 {
+    @apply lg:text-lg text-sm font-semibold;
+  }
+}
+
+@layer components {
+  .fluidPaddingContainer {
+    @apply lg:px-12 px-6;
+  }
+  .fluidContainer {
+    @apply lg:mx-12 mx-6;
+  }
+  .splide__transparent {
+    @apply bg-accent;
+  }
+}
+@layer utilities {
+  .categoryGradient {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 40%,
+      rgba(0, 0, 0, 1) 100%
+    );
+  }
+}
