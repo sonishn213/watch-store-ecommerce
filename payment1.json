@@ -1,0 +1,59 @@
+{
+    "entity": "event",
+    "account_id": "acc_ISW6Wg4IyAiroE",
+    "event": "payment.captured",
+    "contains": [
+        "payment"
+    ],
+    "payload": {
+        "payment": {
+            "entity": {
+                "id": "pay_JsMbg51viyHkcF",
+                "entity": "payment",
+                "amount": 20000,
+                "currency": "INR",
+                "status": "captured",
+                "order_id": "order_JsMaraR6zuFbob",
+                "invoice_id": null,
+                "international": false,
+                "method": "card",
+                "amount_refunded": 0,
+                "refund_status": null,
+                "captured": true,
+                "description": "Choose your payment method",
+                "card_id": "card_JsMbg8Pbryv9uw",
+                "card": {
+                    "id": "card_JsMbg8Pbryv9uw",
+                    "entity": "card",
+                    "name": "mahesh",
+                    "last4": "1111",
+                    "network": "Visa",
+                    "type": "debit",
+                    "issuer": null,
+                    "international": false,
+                    "emi": false,
+                    "sub_type": "consumer",
+                    "token_iin": null
+                },
+                "bank": null,
+                "wallet": null,
+                "vpa": null,
+                "email": "mahesh@gmsil.com",
+                "contact": "+919632356478",
+                "notes": [],
+                "fee": 400,
+                "tax": 0,
+                "error_code": null,
+                "error_description": null,
+                "error_source": null,
+                "error_step": null,
+                "error_reason": null,
+                "acquirer_data": {
+                    "auth_code": "587429"
+                },
+                "created_at": 1657609026
+            }
+        }
+    },
+    "created_at": 1657609033
+}

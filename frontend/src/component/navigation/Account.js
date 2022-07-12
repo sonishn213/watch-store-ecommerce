@@ -79,7 +79,9 @@ const Account = () => {
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
         <MenuItem>Profile</MenuItem>
-        <MenuItem>Orders</MenuItem>
+        <MenuItem>
+          <Link to="/orders">Orders</Link>
+        </MenuItem>
         {user ? (
           <MenuItem onClick={onLogout}>LOGOUT</MenuItem>
         ) : (

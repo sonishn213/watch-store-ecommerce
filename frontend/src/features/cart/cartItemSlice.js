@@ -67,13 +67,42 @@ export const deleteCartItem = createAsyncThunk(
       return thunkAPI.rejectWithValue(message);
     }
   }
-); //create slice
+);
+
+//delete all cart items of a user
+
+export const deleteAllCartItem = createAsyncThunk(
+  "cart/deleteAllCartItem",
+  async (_, thunkAPI) => {
+    try {
+      //get token from auth state
+      const token = thunkAPI.getState().auth.user.token;
+      //send request
+      return await cartItemService.deleteAllItems(token);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      //set reject message in thunkapi
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+
+//create slice
 const cartItemSlice = createSlice({
   name: "cartItem",
   initialState,
   reducers: {
-    reset: (state) => {
-      state = initialState;
+    resetCartItem: (state) => {
+      state.cartItems = initialState.cartItems;
+      state.isLoading = false;
+      state.isError = initialState.isError;
+      state.isSuccess = initialState.isSuccess;
+      state.message = initialState.message;
     },
   },
   extraReducers: (builder) => {
@@ -125,8 +154,23 @@ const cartItemSlice = createSlice({
         state.isError = true;
         state.message = action.payload;
         // state.cartItems = null;
+      })
+      .addCase(deleteAllCartItem.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(deleteAllCartItem.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isError = false;
+        state.message = action.payload;
+      })
+      .addCase(deleteAllCartItem.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
+        console.log(action);
+        // state.cartItems = null;
       });
   },
 });
-export const { reset } = cartItemSlice.actions;
+export const { resetCartItem } = cartItemSlice.actions;
 export default cartItemSlice.reducer;

@@ -1,8 +1,7 @@
 const asyncHandler = require("express-async-handler");
-
+const mongoose = require("mongoose");
 const CartItems = require("../models/cartitemsModel");
-const Product = require("../models/productModel");
-const User = require("../models/userModel");
+
 // @desc  get cart items
 // @route GET api/cartitems
 // @access private
@@ -60,6 +59,25 @@ const deleteCartItems = asyncHandler(async (req, res) => {
   //send response
   res.status(200).json({ id: req.params.id });
 });
+// @desc  delete cartitems of user
+// @route DELETE api/cartitems/deleteall
+// @access private
+const deleteAllCartItems = async (req, res) => {
+  try {
+    //delete item
+    const deletedItems = await CartItems.deleteMany({ user: req.user.id });
+    //send response
+    res.status(200).json({ user: req.user.id });
+  } catch (error) {
+    res.status(400);
+    throw new Error(error);
+  }
+};
 
 //exports
-module.exports = { getCartItems, setCartItems, deleteCartItems };
+module.exports = {
+  getCartItems,
+  setCartItems,
+  deleteCartItems,
+  deleteAllCartItems,
+};

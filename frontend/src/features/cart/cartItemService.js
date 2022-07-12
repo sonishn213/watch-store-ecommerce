@@ -43,11 +43,27 @@ const deleteItem = async (id, token) => {
   return res.data;
 };
 
+// delete all items of a user
+const deleteAllItems = async (token) => {
+  const API_LINK = "/api/cartitems/deleteall";
+  //set token in header
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  //send request
+  const res = await axios.delete(API_LINK, config);
+  //   returning data
+  return res.data;
+};
+
 //function to export
 const cartItemService = {
   getCartItems,
   addToCart,
   deleteItem,
+  deleteAllItems,
 };
 
 //exports

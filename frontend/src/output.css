@@ -682,6 +682,11 @@ h5{
   margin-right: auto;
 }
 
+.my-40{
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+}
+
 .my-4{
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -690,6 +695,11 @@ h5{
 .my-6{
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+}
+
+.my-20{
+  margin-top: 5rem;
+  margin-bottom: 5rem;
 }
 
 .mt-10{
@@ -706,6 +716,10 @@ h5{
 
 .mr-12{
   margin-right: 3rem;
+}
+
+.ml-2{
+  margin-left: 0.5rem;
 }
 
 .mb-6{
@@ -728,16 +742,12 @@ h5{
   margin-bottom: 2rem;
 }
 
-.mt-28{
-  margin-top: 7rem;
+.mt-2{
+  margin-top: 0.5rem;
 }
 
-.ml-1{
-  margin-left: 0.25rem;
-}
-
-.ml-2{
-  margin-left: 0.5rem;
+.mt-4{
+  margin-top: 1rem;
 }
 
 .block{
@@ -808,6 +818,14 @@ h5{
   width: 60%;
 }
 
+.w-1\/12{
+  width: 8.333333%;
+}
+
+.w-1\/6{
+  width: 16.666667%;
+}
+
 .min-w-full{
   min-width: 100%;
 }
@@ -828,7 +846,15 @@ h5{
   max-width: 100%;
 }
 
+.max-w-3xl{
+  max-width: 48rem;
+}
+
 .flex-grow{
+  flex-grow: 1;
+}
+
+.grow{
   flex-grow: 1;
 }
 
@@ -948,6 +974,38 @@ h5{
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
+.space-x-5 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1.25rem * var(--tw-space-x-reverse));
+  margin-left: calc(1.25rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-x-4 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1rem * var(--tw-space-x-reverse));
+  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-y-8 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-y-reverse: 0;
+  margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+}
+
+.space-y-80 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-y-reverse: 0;
+  margin-top: calc(20rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(20rem * var(--tw-space-y-reverse));
+}
+
+.self-start{
+  align-self: flex-start;
+}
+
+.self-center{
+  align-self: center;
+}
+
 .overflow-auto{
   overflow: auto;
 }
@@ -1054,6 +1112,11 @@ h5{
   background-color: transparent;
 }
 
+.bg-gray-dark{
+  --tw-bg-opacity: 1;
+  background-color: rgb(148 148 148 / var(--tw-bg-opacity));
+}
+
 .fill-white{
   fill: #fff;
 }
@@ -1111,9 +1174,9 @@ h5{
   padding-bottom: 3rem;
 }
 
-.py-8{
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+.py-4{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .px-6{
@@ -1146,29 +1209,26 @@ h5{
   padding-right: 0.5rem;
 }
 
-.py-4{
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+.py-40{
+  padding-top: 10rem;
+  padding-bottom: 10rem;
 }
 
-.pt-20{
-  padding-top: 5rem;
+.py-8{
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.pt-10{
+  padding-top: 2.5rem;
 }
 
 .pb-10{
   padding-bottom: 2.5rem;
 }
 
-.pt-32{
-  padding-top: 8rem;
-}
-
 .pb-40{
   padding-bottom: 10rem;
-}
-
-.pt-28{
-  padding-top: 7rem;
 }
 
 .pt-2{
@@ -1195,6 +1255,10 @@ h5{
   padding-left: 0px;
 }
 
+.pt-20{
+  padding-top: 5rem;
+}
+
 .pt-16{
   padding-top: 4rem;
 }
@@ -1207,8 +1271,12 @@ h5{
   padding-bottom: 3.5rem;
 }
 
-.pt-10{
-  padding-top: 2.5rem;
+.pb-4{
+  padding-bottom: 1rem;
+}
+
+.pl-6{
+  padding-left: 1.5rem;
 }
 
 .text-left{
@@ -1222,6 +1290,11 @@ h5{
 .text-lg{
   font-size: 1.125rem;
   line-height: 1.75rem;
+}
+
+.text-2xl{
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .text-sm{
@@ -1239,9 +1312,9 @@ h5{
   line-height: 1.5rem;
 }
 
-.text-2xl{
-  font-size: 1.5rem;
-  line-height: 2rem;
+.text-3xl{
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .font-bold{
@@ -1370,14 +1443,14 @@ h5{
   color: rgb(25 25 25 / var(--tw-text-opacity));
 }
 
-.hover\:text-accentHover:hover{
-  --tw-text-opacity: 1;
-  color: rgb(237 120 55 / var(--tw-text-opacity));
-}
-
 .hover\:text-accent:hover{
   --tw-text-opacity: 1;
   color: rgb(216 124 73 / var(--tw-text-opacity));
+}
+
+.hover\:text-accentHover:hover{
+  --tw-text-opacity: 1;
+  color: rgb(237 120 55 / var(--tw-text-opacity));
 }
 
 .hover\:opacity-90:hover{
@@ -1421,6 +1494,10 @@ h5{
     margin-top: 0px;
   }
 
+  .md\:mb-10{
+    margin-bottom: 2.5rem;
+  }
+
   .md\:block{
     display: block;
   }
@@ -1455,6 +1532,10 @@ h5{
 
   .md\:w-2\/3{
     width: 66.666667%;
+  }
+
+  .md\:w-1\/12{
+    width: 8.333333%;
   }
 
   .md\:grid-cols-3{
@@ -1525,13 +1606,27 @@ h5{
     padding: 0.5rem;
   }
 
+  .md\:p-4{
+    padding: 1rem;
+  }
+
+  .md\:p-6{
+    padding: 1.5rem;
+  }
+
   .md\:py-0{
     padding-top: 0px;
     padding-bottom: 0px;
   }
 
-  .md\:pt-32{
-    padding-top: 8rem;
+  .md\:py-40{
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+
+  .md\:py-20{
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
 
   .md\:pb-20{

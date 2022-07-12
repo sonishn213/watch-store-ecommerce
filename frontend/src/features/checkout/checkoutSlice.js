@@ -28,8 +28,14 @@ const checkoutSlice = createSlice({
     setFinalPrice: (state, action) => {
       state.totalprice = action.payload.totalprice;
     },
+    resetCheckout: (state) => {
+      state.form = initialState.form;
+      state.cartitems = initialState.cartitems;
+      state.totalprice = initialState.totalprice;
+    },
   },
 });
 
-export const { setForm, setCartItem, setFinalPrice } = checkoutSlice.actions;
+export const { setForm, setCartItem, setFinalPrice, resetCheckout } =
+  checkoutSlice.actions;
 export default checkoutSlice.reducer;
