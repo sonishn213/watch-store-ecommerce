@@ -7,24 +7,27 @@ const Order = require("../models/orderModel");
 const setOrders = asyncHandler(async (req, res) => {
   if (!req.body.products) {
     res.status(400);
-    throw new Error("Please add a p_id field");
+    throw new Error("Please add a product field");
   }
   try {
-    const order = await Order.create({
-      user: req.user.id,
-      products: req.body.products,
-      amount: req.body.amount,
-      cust_name: req.body.form.name,
-      phno: req.body.form.phno,
-      email: req.body.form.email,
-      address: req.body.form.address,
-      zipcode: req.body.form.zipcode,
-      city: req.body.form.city,
-      state: req.body.form.state,
-      payment_status: "pending",
-      order_status: "initiated",
-      razor_order_id: req.body.razor_order_id,
+    const ordersArray = req.body.products.map((product) => {
+      return {
+        user: req.user.id,
+        product: product,
+        amount: req.body.amount,
+        cust_name: req.body.form.name,
+        phno: req.body.form.phno,
+        email: req.body.form.email,
+        address: req.body.form.address,
+        zipcode: req.body.form.zipcode,
+        city: req.body.form.city,
+        state: req.body.form.state,
+        payment_status: "pending",
+        order_status: "initiated",
+        razor_order_id: req.body.razor_order_id,
+      };
     });
+    const order = await Order.insertMany(ordersArray);
     res.status(201).json(order);
   } catch (error) {
     res.status(500);

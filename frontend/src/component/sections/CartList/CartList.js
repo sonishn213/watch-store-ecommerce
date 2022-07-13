@@ -24,7 +24,7 @@ const CartList = ({ children }) => {
     if (user) {
       dispatch(getCartItems());
     }
-  }, [user]);
+  }, [user, dispatch]);
 
   //funcition to delete item cart
   const handleDeleteItem = (id) => {

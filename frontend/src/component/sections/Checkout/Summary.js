@@ -49,7 +49,7 @@ const Summary = () => {
     //create product object
     let productArray = cartitems.map((product) => {
       return {
-        p_id: product._id,
+        p_id: product.p_id,
         p_name: product.p_name,
         price: product.price,
         mainimg: product.mainimg,
@@ -113,7 +113,7 @@ const Summary = () => {
         form: form,
         products: productArray,
         amount: totalprice,
-        razor_order_id: "order:fake",
+        razor_order_id: "order:fakeagain",
       })
     );
   };
@@ -127,9 +127,6 @@ const Summary = () => {
 
             <Button onClick={displayRazorpay} size="full">
               Continue to pay
-            </Button>
-            <Button onClick={testOrderCreate} size="full">
-              test
             </Button>
           </div>
         </CartList>

@@ -26,8 +26,8 @@ const orderSchema = mongoose.Schema(
       required: true,
       ref: "User",
     },
-    products: {
-      type: [productSchema],
+    product: {
+      type: productSchema,
       required: true,
     },
     amount: {

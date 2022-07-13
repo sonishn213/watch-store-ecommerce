@@ -30,7 +30,7 @@ const verification = async (req, res) => {
     // process it
     const orderId = req.body.payload.payment.entity.order_id; //get the order id from req body
     //updata order
-    const updatedOrder = await Order.findOneAndUpdate(
+    const updatedOrder = await Order.updateMany(
       { razor_order_id: orderId },
       {
         payment_status: "paid",

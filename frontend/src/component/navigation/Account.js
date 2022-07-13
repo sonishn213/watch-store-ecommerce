@@ -6,7 +6,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
 import { logOut, reset } from "../../features/auth/authSlice";
-
+import { resetCartItem } from "../../features/cart/cartItemSlice";
+import { resetCheckout } from "../../features/checkout/checkoutSlice";
 const Account = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -25,8 +26,11 @@ const Account = () => {
   const { user } = useSelector((state) => state.auth);
 
   const onLogout = () => {
+    //reset protected components states
     dispatch(logOut());
-    dispatch(reset());
+    dispatch(reset()); //reset auth
+    dispatch(resetCartItem());
+    dispatch(resetCheckout());
     navigate("/");
   };
 
@@ -80,7 +84,7 @@ const Account = () => {
       >
         <MenuItem>Profile</MenuItem>
         <MenuItem>
-          <Link to="/orders">Orders</Link>
+          <Link to={user ? "/orders" : "/login"}>Orders</Link>
         </MenuItem>
         {user ? (
           <MenuItem onClick={onLogout}>LOGOUT</MenuItem>

@@ -9,10 +9,12 @@ import { getCartItems } from "../../features/cart/cartItemSlice";
 import Badge from "@mui/material/Badge";
 
 const CartButton = () => {
-  const { cartItems } = useSelector((state) => state.cartItem);
-  const [openState, setOpenState] = useState(false);
+  const { user } = useSelector((state) => state.auth); //user state
+  const { cartItems } = useSelector((state) => state.cartItem); //cart items state
+  const [openState, setOpenState] = useState(false); //menu state
   const location = useLocation();
   const dispatch = useDispatch();
+  //menu toggle
   const toggleDrawer = (open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -27,10 +29,13 @@ const CartButton = () => {
   useEffect(() => {
     setOpenState(false);
   }, [location, setOpenState]);
+
   //get all items on load
   useEffect(() => {
-    dispatch(getCartItems());
-  }, [dispatch, getCartItems]);
+    if (user) {
+      dispatch(getCartItems());
+    }
+  }, [user, dispatch, getCartItems]);
 
   return (
     <div className="">
