@@ -673,6 +673,10 @@ h5{
   z-index: 20;
 }
 
+.z-10{
+  z-index: 10;
+}
+
 .col-span-2{
   grid-column: span 2 / span 2;
 }
@@ -802,6 +806,14 @@ h5{
 
 .w-3\/5{
   width: 60%;
+}
+
+.w-\[250px\]{
+  width: 250px;
+}
+
+.w-\[200px\]{
+  width: 200px;
 }
 
 .min-w-full{
@@ -962,6 +974,14 @@ h5{
 
 .overflow-hidden{
   overflow: hidden;
+}
+
+.text-ellipsis{
+  text-overflow: ellipsis;
+}
+
+.whitespace-nowrap{
+  white-space: nowrap;
 }
 
 .rounded-md{
@@ -1155,6 +1175,11 @@ h5{
   padding-bottom: 2rem;
 }
 
+.py-5{
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
 .pt-10{
   padding-top: 2.5rem;
 }
@@ -1213,6 +1238,14 @@ h5{
 
 .pb-14{
   padding-bottom: 3.5rem;
+}
+
+.pl-4{
+  padding-left: 1rem;
+}
+
+.pl-5{
+  padding-left: 1.25rem;
 }
 
 .text-left{
@@ -1469,6 +1502,10 @@ h5{
     width: 8.333333%;
   }
 
+  .md\:w-10\/12{
+    width: 83.333333%;
+  }
+
   .md\:grid-cols-3{
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -1592,6 +1629,10 @@ h5{
     padding-top: 6rem;
   }
 
+  .md\:pl-8{
+    padding-left: 2rem;
+  }
+
   .md\:text-left{
     text-align: left;
   }
@@ -1645,6 +1686,10 @@ h5{
     width: 75%;
   }
 
+  .lg\:grid-cols-4{
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
   .lg\:space-x-16 > :not([hidden]) ~ :not([hidden]){
     --tw-space-x-reverse: 0;
     margin-right: calc(4rem * var(--tw-space-x-reverse));
@@ -1694,5 +1739,9 @@ h5{
 @media (min-width: 1280px){
   .xl\:w-1\/2{
     width: 50%;
+  }
+
+  .xl\:grid-cols-5{
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 }

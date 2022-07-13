@@ -1,6 +1,7 @@
 const asyncHandler = require("express-async-handler");
-const { findById } = require("../models/productModel");
 const Product = require("../models/productModel");
+const User = require("../models/userModel");
+
 // @desc  get Products
 // @route POST api/products/
 // @access private
@@ -12,7 +13,7 @@ const getProducts = asyncHandler(async (req, res) => {
     console.log(JSON.parse(req.body.filter));
     filterString = makeFilterString(JSON.parse(req.body.filter));
   }
-  if (req.sort && req.sort === 1) {
+  if (req.body.sort && req.body.sort === "1") {
     sortString.createdAt = 1;
   }
   try {
@@ -39,19 +40,32 @@ const setProducts = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error("Please add a p_name field");
   }
-  const products = await Product.create({
-    p_name: req.body.p_name,
-    description: req.body.description,
-    details: req.body.details,
-    price: req.body.price,
-    mainimg: req.body.mainimg,
-    images: req.body.images,
-    gender: req.body.gender,
-    occation: req.body.occation,
-    strapmaterial: req.body.strapmaterial,
-    display: req.body.display,
-  });
-  res.status(200).json(products);
+  //search user
+  const user = await User.findById(req.user.id);
+  //user not found
+  if (await !user) {
+    res.status(400);
+    throw new Error("User not found");
+  }
+  // check user role
+  if ((await user.role) !== "admin") {
+    res.status(400);
+    throw new Error("User is invalid : " + (await user.role));
+  } else {
+    const products = await Product.create({
+      p_name: req.body.p_name,
+      description: req.body.description,
+      details: req.body.details,
+      price: req.body.price,
+      mainimg: req.body.mainimg,
+      images: JSON.parse(req.body.images),
+      gender: req.body.gender,
+      occation: req.body.occation,
+      strapmaterial: req.body.strapmaterial,
+      display: req.body.display,
+    });
+    res.status(200).json(products);
+  }
 });
 
 // @desc  get Single Product

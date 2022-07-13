@@ -69,35 +69,4 @@ const createPayment = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc    Update goal
-// @route   PUT /api/goals/:id
-// @access  Private
-const updateOrder = asyncHandler(async (id, data, req, res) => {
-  const order = await Order.findById(id);
-
-  if (!order) {
-    res.status(400);
-    throw new Error("Payment done! order not found");
-  }
-
-  // Check for user
-  if (!req.user) {
-    res.status(401);
-    throw new Error("Payment done! User not found");
-  }
-
-  // Make sure the logged in user matches the goal user
-  if (order.user.toString() !== req.user.id) {
-    res.status(401);
-    throw new Error("Payment done! User not authorized");
-  }
-  try {
-    const updatedOrder = await Order.findByIdAndUpdate(req.params.id, data);
-    res.status(200).json(updatedOrder);
-  } catch (error) {
-    res.status(500);
-    throw new Error("Payment done! Order not placed");
-  }
-});
-
 module.exports = { verification, createPayment };

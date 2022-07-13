@@ -1,14 +1,18 @@
 import React, { useEffect, useState, useContext } from "react";
-
 import ProductCard from "../SingleProduct/ProductCard";
 import { Link } from "react-router-dom";
 import Loading from "../../globals/Loading";
-import { FilterContext } from "../../../pages/Products";
 
 import { useSelector, useDispatch } from "react-redux";
 import { getProduct } from "../../../features/products/productSlice";
+import SidebarFilter from "./SidebarFilter";
+import FilterButton from "./FilterButton";
+
+//
+//
+//start
 const Content = () => {
-  const [filters] = useContext(FilterContext);
+  const { filters } = useSelector((state) => state.sidebarFilter);
   const [sortState, setSortState] = useState("DESC");
 
   const dispatch = useDispatch();
@@ -17,21 +21,29 @@ const Content = () => {
   );
   useEffect(() => {
     if (Object.keys(filters).length === 0) {
-      dispatch(getProduct({}));
+      dispatch(getProduct({ sort: sortState }));
     } else {
-      dispatch(getProduct({ filter: JSON.stringify(filters) }));
+      dispatch(
+        getProduct({ filter: JSON.stringify(filters), sort: sortState })
+      );
     }
-  }, [filters]);
+  }, [filters, sortState]);
 
   return (
     <>
       <main className="w-full ">
         <section className="w-full border-b border-gray-dark">
           <div className=" py-6 fluidPaddingContainer">
+            <h4>
+              Showing {products?.length} of {products?.length}
+            </h4>
             <div className="flex justify-between items-center">
-              <h4>
-                Showing {products?.length} of {products?.length}
-              </h4>
+              <div>
+                <FilterButton>
+                  <SidebarFilter />
+                </FilterButton>
+              </div>
+
               <select
                 onChange={(e) => {
                   setSortState(e.target.value);
@@ -39,8 +51,8 @@ const Content = () => {
                 value={sortState}
                 className="px-6 py-2 bg-gray-light min-w-[150px] outline-none"
               >
-                <option value="1">Latest</option>
-                <option value="-1">Oldest</option>
+                <option value="-1">Latest</option>
+                <option value="1">Oldest</option>
               </select>
             </div>
           </div>
@@ -53,7 +65,7 @@ const Content = () => {
           ) : isError ? (
             <h4 className="fluidPaddingContainer py-6">{message}</h4>
           ) : (
-            <div className=" grid grid-cols-5 gap-6 py-6 fluidPaddingContainer">
+            <div className=" grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 py-6 fluidPaddingContainer">
               {products?.map((item) => {
                 return (
                   <Link to={`/view/${item._id}`}>
