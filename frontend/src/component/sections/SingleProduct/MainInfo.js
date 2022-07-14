@@ -1,6 +1,7 @@
 import Button from "../../inputs/Button";
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart, getCartItems } from "../../../features/cart/cartItemSlice";
+import { useEffect } from "react";
 
 const MainInfo = ({ data }) => {
   const dispatch = useDispatch();
@@ -8,11 +9,11 @@ const MainInfo = ({ data }) => {
   const handleAddtocart = (pdata) => {
     if (user) {
       dispatch(addToCart(pdata));
-      dispatch(getCartItems());
     } else {
       alert("Please Login");
     }
   };
+
   return (
     <section className="pt-10">
       <div className="fluidContainer md:flex">

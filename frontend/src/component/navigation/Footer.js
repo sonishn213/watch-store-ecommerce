@@ -16,7 +16,12 @@ const Footer = () => {
         </div>
         <div className="space-y-16 md:block flex justify-between mt-6 md:mt-0">
           <nav className="flex md:flex-row flex-col md:space-x-12 space-y-6 text-left md:space-y-0 text-sm md:items-center py2">
-            <NavLink to="/">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? "text-accent" : undefined
+              }
+            >
               <div className="uppercase">Home</div>
             </NavLink>
             <NavLink to="/">

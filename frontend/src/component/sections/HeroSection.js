@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const HeroSection = () => {
   return (
     <section id="herosection" className="bg-black text-white ">
-      <div className="fluidContainer lg:flex py-20 items-center">
+      <div className="fluidContainer lg:flex md:py-20 pb-14 pt-6 items-center">
         <div className="lg:w-1/2 lg:order-2">
           <div className="xl:w-1/2  md:w-2/3 w-3/4 mx-auto">
             <img
@@ -27,7 +27,7 @@ const HeroSection = () => {
             </p>
           </div>
           <div>
-            <Link to="view/3">
+            <Link to="view/62ceae8dafc46c97e263af1d">
               <Button varient="btn-filled">See product</Button>
             </Link>
           </div>

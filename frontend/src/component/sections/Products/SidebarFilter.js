@@ -5,12 +5,13 @@ import {
   setCheckedValue,
   setCheckedState,
 } from "../../../features/sidebarfilter/sidebarfilterSlice";
+//
+//
+//
 const SidebarFilter = () => {
   const dispatch = useDispatch();
 
-  const { checkedValue, checkedState } = useSelector(
-    (state) => state.sidebarFilter
-  );
+  const { checkedState } = useSelector((state) => state.sidebarFilter);
 
   //function to store the value of checkbox in state
   const handleChecks = (e) => {
@@ -23,31 +24,6 @@ const SidebarFilter = () => {
     //store the checked state of checkbox
     dispatch(setCheckedState({ position }));
   };
-  useEffect(() => {
-    console.log(checkedState);
-  }, [checkedState]);
-  useEffect(() => {
-    //current structure example of checkedvalue state
-    //[{type:"gender",value:"men"},{type:"gender",value:"women"},{type:"occation",value:"casual"}]
-    //// object structure after below code runs
-    ////
-    // obj={
-    //   gender :[gender:"value1",gender:value2],
-    //   occation :[occation:"value1",occation:value2],
-    //   ...
-    // }
-
-    ////here a new obj is created with unique type and value array
-    ////this obj is set to filter context
-
-    let obj = {};
-    checkedValue.forEach((item) => {
-      obj[item.type] = obj[item.type]
-        ? [...obj[item.type], { [item.type]: item.value }]
-        : [{ [item.type]: item.value }];
-    });
-    dispatch(setFilters(obj));
-  }, [checkedValue]);
 
   return (
     <div className="w-full relative lg:pl-12 md:pl-8 pl-5">

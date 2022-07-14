@@ -7,12 +7,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { getProduct } from "../../../features/products/productSlice";
 import SidebarFilter from "./SidebarFilter";
 import FilterButton from "./FilterButton";
-
+import { setFilters } from "../../../features/sidebarfilter/sidebarfilterSlice";
 //
 //
-//start
+//
 const Content = () => {
-  const { filters } = useSelector((state) => state.sidebarFilter);
+  const { filters, checkedValue } = useSelector((state) => state.sidebarFilter);
   const [sortState, setSortState] = useState("DESC");
 
   const dispatch = useDispatch();
@@ -29,19 +29,51 @@ const Content = () => {
     }
   }, [filters, sortState]);
 
+  useEffect(() => {
+    //current structure example of checkedvalue state
+    //[{type:"gender",value:"men"},{type:"gender",value:"women"},{type:"occation",value:"casual"}]
+    //// object structure after below code runs
+    ////
+    // obj={
+    //   gender :[gender:"value1",gender:value2],
+    //   occation :[occation:"value1",occation:value2],
+    //   ...
+    // }
+
+    ////here a new obj is created with unique type and value array
+    ////this obj is set to filter context
+
+    let obj = {};
+    checkedValue.forEach((item) => {
+      obj[item.type] = obj[item.type]
+        ? [...obj[item.type], { [item.type]: item.value }]
+        : [{ [item.type]: item.value }];
+    });
+    dispatch(setFilters(obj));
+  }, [checkedValue]);
+
   return (
     <>
       <main className="w-full ">
         <section className="w-full border-b border-gray-dark">
           <div className=" py-6 fluidPaddingContainer">
-            <h4>
-              Showing {products?.length} of {products?.length}
-            </h4>
+            <div className="md:hidden ">
+              <h4>
+                Showing {products?.length} of {products?.length}
+              </h4>
+            </div>
             <div className="flex justify-between items-center">
               <div>
-                <FilterButton>
-                  <SidebarFilter />
-                </FilterButton>
+                <div className="hidden md:block">
+                  <h4>
+                    Showing {products?.length} of {products?.length}
+                  </h4>
+                </div>
+                <div className="md:hidden">
+                  <FilterButton>
+                    <SidebarFilter />
+                  </FilterButton>
+                </div>
               </div>
 
               <select
@@ -65,7 +97,7 @@ const Content = () => {
           ) : isError ? (
             <h4 className="fluidPaddingContainer py-6">{message}</h4>
           ) : (
-            <div className=" grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 py-6 fluidPaddingContainer">
+            <div className=" grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-6 md:py-6   fluidPaddingContainer">
               {products?.map((item) => {
                 return (
                   <Link to={`/view/${item._id}`}>

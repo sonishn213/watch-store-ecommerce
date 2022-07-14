@@ -27,10 +27,10 @@
 
 @layer components {
   .fluidPaddingContainer {
-    @apply lg:px-12 px-6;
+    @apply lg:px-12 px-2;
   }
   .fluidContainer {
-    @apply lg:mx-12 mx-6;
+    @apply lg:mx-12 mx-2;
   }
   .splide__transparent {
     @apply bg-accent;

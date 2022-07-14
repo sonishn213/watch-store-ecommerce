@@ -7,7 +7,9 @@ import { Link, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getCartItems } from "../../features/cart/cartItemSlice";
 import Badge from "@mui/material/Badge";
-
+//
+//
+//
 const CartButton = () => {
   const { user } = useSelector((state) => state.auth); //user state
   const { cartItems } = useSelector((state) => state.cartItem); //cart items state

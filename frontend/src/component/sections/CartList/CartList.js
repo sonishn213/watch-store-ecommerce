@@ -20,11 +20,11 @@ const CartList = ({ children }) => {
   );
 
   //get cart items
-  useEffect(() => {
-    if (user) {
-      dispatch(getCartItems());
-    }
-  }, [user, dispatch]);
+  // useEffect(() => {
+  //   if (user) {
+  //     dispatch(getCartItems());
+  //   }
+  // }, [user, dispatch]);
 
   //funcition to delete item cart
   const handleDeleteItem = (id) => {
@@ -77,13 +77,15 @@ const ListItem = ({ data, onClick }) => {
       <div className="w-1/5 rounded-md overflow-hidden">
         <img src={data.mainimg} alt="productImage" className="max-w-full" />
       </div>
-      <div className="px-2 flex flex-col justify-between flex-grow">
-        <p className="font-semibold">{data.p_name}</p>
+      <div className="px-2 flex flex-col justify-between   min-w-0">
+        <p className="font-semibold whitespace-nowrap text-ellipsis overflow-hidden">
+          {data.p_name}
+        </p>
         <p className="font-semibold">$ {data.price}</p>
       </div>
       <div
         onClick={() => onClick(data._id)}
-        className=" flex items-center justify-end cursor-pointer hover:text-accentHover"
+        className=" flex items-center justify-end cursor-pointer hover:text-accentHover px-2"
       >
         <AiOutlineClose />
       </div>

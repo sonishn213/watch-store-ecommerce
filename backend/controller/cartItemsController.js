@@ -21,13 +21,16 @@ const setCartItems = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error("Please add a p_id field");
   }
-  const cartitems = await CartItems.create({
+  const addedProduct = await CartItems.create({
     user: req.user.id,
     p_id: req.body.p_id,
     p_name: req.body.p_name,
     price: req.body.price,
     mainimg: req.body.mainimg,
   });
+  const cartitems = await CartItems.find({ user: req.user.id });
+
+  //return result
   res.status(200).json(cartitems);
 });
 
