@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { logOut, reset } from "../../features/auth/authSlice";
 import { resetCartItem } from "../../features/cart/cartItemSlice";
 import { resetCheckout } from "../../features/checkout/checkoutSlice";
+
 const Account = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);

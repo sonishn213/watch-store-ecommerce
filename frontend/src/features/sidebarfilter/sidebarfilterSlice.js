@@ -11,7 +11,15 @@ const sidebarFilterSlice = createSlice({
   initialState,
   reducers: {
     setFilters: (state, action) => {
-      state.filters = action.payload;
+      let obj = {};
+
+      state.checkedValue.forEach((item) => {
+        obj[item.type] = obj[item.type]
+          ? [...obj[item.type], { [item.type]: item.value }]
+          : [{ [item.type]: item.value }];
+      });
+      console.log(obj);
+      state.filters = obj;
     },
     setCheckedValue: (state, action) => {
       const value = action.payload.value;

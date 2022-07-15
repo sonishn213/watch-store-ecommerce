@@ -1,6 +1,7 @@
 import React from "react";
 import sportsProduct from "../../Assets/images/sportsProduct.png";
 import Button from "../inputs/Button";
+import { Link } from "react-router-dom";
 const Product3Section = () => {
   return (
     <section className="pb-20">
@@ -15,7 +16,9 @@ const Product3Section = () => {
         <div className="bg-gray-light md:w-1/2 w-full rounded-2.5xl md:pl-32 flex items-center justify-center text-center md:text-left md:justify-start py-16 md:py-0">
           <div>
             <h1 className=" uppercase mb-10">DUST SPORTS</h1>
-            <Button varient="btn-outlined">See product</Button>
+            <Link to="/view/62d00fd1593febc32343dbe8">
+              <Button varient="btn-outlined">See product</Button>
+            </Link>
           </div>
         </div>
       </div>

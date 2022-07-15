@@ -1,7 +1,6 @@
 import Navbar from "./component/navigation/Navbar";
 import { Outlet } from "react-router-dom";
-import { useState } from "react";
-import Footer from "./component/navigation/Footer";
+import Footer from "./component/navigation/Footer/Footer";
 
 import { Provider } from "react-redux";
 import { store } from "./app/store";

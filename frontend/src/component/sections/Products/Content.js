@@ -12,45 +12,36 @@ import { setFilters } from "../../../features/sidebarfilter/sidebarfilterSlice";
 //
 //
 const Content = () => {
+  //filters
   const { filters, checkedValue } = useSelector((state) => state.sidebarFilter);
-  const [sortState, setSortState] = useState("DESC");
+  const [sortState, setSortState] = useState("-1");
 
   const dispatch = useDispatch();
+
+  //clicked on category link
+
+  //product state
   const { products, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.product
   );
+
+  //call setfilter when checked value changes
   useEffect(() => {
+    dispatch(setFilters());
+  }, [checkedValue, dispatch]);
+
+  //calling getproducts based on filter existence
+  useEffect(() => {
+    console.log(filters, "inside");
     if (Object.keys(filters).length === 0) {
       dispatch(getProduct({ sort: sortState }));
     } else {
+      console.log(filters, "inside else");
       dispatch(
         getProduct({ filter: JSON.stringify(filters), sort: sortState })
       );
     }
   }, [filters, sortState]);
-
-  useEffect(() => {
-    //current structure example of checkedvalue state
-    //[{type:"gender",value:"men"},{type:"gender",value:"women"},{type:"occation",value:"casual"}]
-    //// object structure after below code runs
-    ////
-    // obj={
-    //   gender :[gender:"value1",gender:value2],
-    //   occation :[occation:"value1",occation:value2],
-    //   ...
-    // }
-
-    ////here a new obj is created with unique type and value array
-    ////this obj is set to filter context
-
-    let obj = {};
-    checkedValue.forEach((item) => {
-      obj[item.type] = obj[item.type]
-        ? [...obj[item.type], { [item.type]: item.value }]
-        : [{ [item.type]: item.value }];
-    });
-    dispatch(setFilters(obj));
-  }, [checkedValue]);
 
   return (
     <>

@@ -2,6 +2,7 @@ import React from "react";
 import productImg1 from "../../Assets/images/product1.png";
 import productImg2 from "../../Assets/images/product2.png";
 import Button from "../inputs/Button";
+import { Link } from "react-router-dom";
 const Product1Section = () => {
   return (
     <section className="md:pb-20 pb-12">
@@ -28,7 +29,9 @@ const Product1Section = () => {
             </p>
           </div>
           <div>
-            <Button varient="btn-filled">See product</Button>
+            <Link to="view/62cff4780d63b94d76dae9f2">
+              <Button varient="btn-filled">See product</Button>
+            </Link>
           </div>
         </div>
       </div>

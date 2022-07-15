@@ -1,8 +1,12 @@
+import { useEffect } from "react";
 import Content from "../component/sections/Products/Content";
 import SidebarFilter from "../component/sections/Products/SidebarFilter";
-import FilterButton from "../component/sections/Products/FilterButton";
 
 const Products = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   //render
   return (
     <main className=" flex  ">

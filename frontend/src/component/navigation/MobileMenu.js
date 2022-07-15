@@ -39,6 +39,7 @@ const MobileMenu = ({ NavLinksArr }) => {
                 <NavLink
                   key={item.text}
                   to={item.link}
+                  end
                   className={({ isActive }) =>
                     isActive
                       ? " bg-accent py-2 px-5 rounded-r-full"
