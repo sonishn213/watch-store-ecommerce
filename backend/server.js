@@ -11,9 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 //send logo
-app.get("/", (req, res) => {
-  res.send("hello");
-});
+
 app.get("/watchlogo.png", (req, res) => {
   res.sendFile(path.join(__dirname, "watchlogo.png"));
 });
@@ -24,6 +22,19 @@ app.use("/api/cartitems", require("./routes/cartItemsRoutes"));
 app.use("/api/user", require("./routes/userRoutes"));
 app.use("/api/payments", require("./routes/paymentRoutes"));
 app.use("/api/orders", require("./routes/orderRoutes"));
+
+// Serve frontend
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../frontend/build")));
+
+  app.get("*", (req, res) =>
+    res.sendFile(
+      path.resolve(__dirname, "../", "frontend", "build", "index.html")
+    )
+  );
+} else {
+  app.get("/", (req, res) => res.send("Please set to production"));
+}
 
 //error handling
 app.use(errorHandler);

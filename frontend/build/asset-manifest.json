@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.9be1b334.css",
+    "main.js": "/static/js/main.d4e94ad7.js",
+    "static/media/product2.png": "/static/media/product2.8bcb85320e21a1e99df0.png",
+    "static/media/Watchhero21.png": "/static/media/Watchhero21.8a11ce5dc45163fafcbb.png",
+    "static/media/sportsProduct.png": "/static/media/sportsProduct.109b395f86dc49d25ef3.png",
+    "static/media/product1.png": "/static/media/product1.0fcad3b8b1115876ba57.png",
+    "static/media/bluewatch.jpg": "/static/media/bluewatch.4d7dae5e59c0ae54cc6c.jpg",
+    "static/media/suitGuy.jpg": "/static/media/suitGuy.11ef79bcf1badc1b8c95.jpg",
+    "static/media/bluewatchmobile.jpg": "/static/media/bluewatchmobile.3e9f6ab9f0c95a9b4bf8.jpg",
+    "static/media/emptybro.svg": "/static/media/emptybro.855a9bcabff8b0cf3c0765ec45002ddd.svg",
+    "index.html": "/index.html",
+    "main.9be1b334.css.map": "/static/css/main.9be1b334.css.map",
+    "main.d4e94ad7.js.map": "/static/js/main.d4e94ad7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9be1b334.css",
+    "static/js/main.d4e94ad7.js"
+  ]
+}
