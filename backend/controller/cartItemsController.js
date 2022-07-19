@@ -1,6 +1,7 @@
 const asyncHandler = require("express-async-handler");
 const mongoose = require("mongoose");
-const CartItems = require("../models/cartitemsModel");
+
+const CartItems = require("../models/cartItemsModel");
 
 // @desc  get cart items
 // @route GET api/cartitems
