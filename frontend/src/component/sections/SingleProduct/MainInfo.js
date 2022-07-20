@@ -9,6 +9,7 @@ const MainInfo = ({ data }) => {
   const handleAddtocart = (pdata) => {
     if (user) {
       dispatch(addToCart(pdata));
+      alert(data.p_name + " added to cart");
     } else {
       alert("Please Login");
     }
@@ -32,7 +33,7 @@ const MainInfo = ({ data }) => {
             <p className="lg:text-xl text-lg text-gray-dark mb-8 hidden md:block  capitalize">
               {data.description}
             </p>
-            <p className="text-2xl  font-bold">${data.price}</p>
+            <p className="text-2xl  font-bold">₹{data.price}</p>
           </div>
           <div>
             <Button

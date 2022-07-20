@@ -23,9 +23,10 @@ const Product1Section = () => {
           <div className="pb-20">
             <h1 className="mb-6 uppercase">MFB Analogue black</h1>
             <p className="text-xl">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud
+              This impressive, trendy watch from Roadster is sure to draw
+              attention when you tell the time. Team this black watch with trim
+              denims and a nice T-shirt when you're meeting your pals for dinner
+              and drinks.
             </p>
           </div>
           <div>

@@ -83,7 +83,6 @@ const Account = () => {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <MenuItem>Profile</MenuItem>
         <MenuItem>
           <Link to={user ? "/orders" : "/login"}>Orders</Link>
         </MenuItem>

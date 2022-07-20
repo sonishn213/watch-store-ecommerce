@@ -15,7 +15,8 @@ import {
 } from "../../../features/checkout/checkoutSlice";
 import { useNavigate } from "react-router-dom";
 
-const __DEV__ = document.domain === "localhost";
+// const __DEV__ = document.domain === "localhost";
+const __DEV__ = "localhost";
 
 const Summary = () => {
   const { cartItems } = useSelector((state) => state.cartItem);
@@ -72,7 +73,7 @@ const Summary = () => {
       order_id: data?.id,
       name: "WATCHSTORE",
       description: "Choose your payment method",
-      image: "http://localhost:5000/watchlogo.png",
+      image: "/watchlogo.png",
       handler: (response) => {
         alert("Payement successful Order placed");
         //reset checkout

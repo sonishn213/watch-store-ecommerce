@@ -9,6 +9,6 @@ const { protect } = require("../middleware/authMiddleware");
 
 //routes
 router.post("/verification", verification);
-router.post("/razorpay", protect, createPayment);
+router.post("/razorpay", createPayment);
 
 module.exports = router;

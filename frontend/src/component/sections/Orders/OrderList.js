@@ -48,7 +48,7 @@ const OrderList = ({ data }) => {
             </div>
             <div className="grow pl-6 flex flex-col justify-between ">
               <p>{data?.product?.p_name}</p>
-              <p className="">{data?.product?.price}</p>
+              <p className="">₹ {data?.product?.price}</p>
             </div>
             <div className="self-center">
               <BsChevronRight />

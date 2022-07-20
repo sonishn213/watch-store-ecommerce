@@ -20,10 +20,12 @@ const SomeWordsSection = () => {
               BRINGING YOU THE <span className="text-accent">BEST</span> look
             </h1>
             <p className=" uppercase mb-10 text-lg tracking-wide">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-              labore
+              Welcome to the online store for watches. Here you will find over
+              140 years of craftsmanship, that make each of these watches
+              incredibly reliable. Layered with our proprietary technology,
+              these watches even push the limits of precision and performance as
+              we know it. And our mastery of traditional Japanese aesthetics
+              adds an inherently distinctive style.
             </p>
           </div>
         </div>

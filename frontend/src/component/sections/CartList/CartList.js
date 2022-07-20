@@ -74,14 +74,14 @@ const CartList = ({ children }) => {
 const ListItem = ({ data, onClick }) => {
   return (
     <div className="flex w-full bg-gray-light rounded-md p-2">
-      <div className="w-1/5 rounded-md overflow-hidden">
+      <div className="w-1/4 rounded-md overflow-hidden flex justify-center items-center">
         <img src={data.mainimg} alt="productImage" className="max-w-full" />
       </div>
       <div className="px-2 flex flex-col justify-between   min-w-0">
         <p className="font-semibold whitespace-nowrap text-ellipsis overflow-hidden">
           {data.p_name}
         </p>
-        <p className="font-semibold">$ {data.price}</p>
+        <p className="font-semibold">₹ {data.price}</p>
       </div>
       <div
         onClick={() => onClick(data._id)}

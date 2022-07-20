@@ -716,6 +716,10 @@ h5{
   margin-left: 0.5rem;
 }
 
+.mb-20{
+  margin-bottom: 5rem;
+}
+
 .mt-6{
   margin-top: 1.5rem;
 }
@@ -738,10 +742,6 @@ h5{
 
 .mt-2{
   margin-top: 0.5rem;
-}
-
-.mb-20{
-  margin-bottom: 5rem;
 }
 
 .block{
@@ -804,8 +804,8 @@ h5{
   width: 2rem;
 }
 
-.w-1\/5{
-  width: 20%;
+.w-1\/4{
+  width: 25%;
 }
 
 .w-1\/2{

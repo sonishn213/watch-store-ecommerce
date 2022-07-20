@@ -10,9 +10,9 @@ const Footer = () => {
         <div className="flex flex-col space-y-12 md:w-1/4 text-center md:text-left">
           <LogoSmall widthClass="w-14" link="/" />
           <div>
-            sidncisdncisdncjksdcnskdjcsdncsdc
-            csdcjnsincsjncsdkjncsidncunsdcjdscksjndcjsdc
-            csjdcnsjdbcsudbcusdbcusdbcu
+            Layered with our proprietary technology, these watches even push the
+            limits of precision and performance as we know it. And our mastery
+            of aesthetics adds a distinctive style.
           </div>
         </div>
         <div className="space-y-16 md:block flex justify-between mt-6 md:mt-0">

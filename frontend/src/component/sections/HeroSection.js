@@ -21,9 +21,9 @@ const HeroSection = () => {
             <h4 className="tracking-widest text-accent">NEW ARRIVAL</h4>
             <h1 className="mb-6">TERMINATOR CHRONOGRAPH</h1>
             <p className="text-xl">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud
+              This impressive, trendy watch from Roadster is sure to draw
+              attention when you tell the time. Flaunt this timeless black piece
+              with casuals when you head out to lunch for a smart look.
             </p>
           </div>
           <div>

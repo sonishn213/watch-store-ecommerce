@@ -8,7 +8,7 @@ const ProductCard = ({ img, title, price }) => {
         <p className="mb-2 capitalize whitespace-nowrap text-ellipsis overflow-hidden">
           {title}
         </p>
-        <p className=" text-base ">${price}</p>
+        <p className=" text-base ">₹{price}</p>
       </div>
     </div>
   );
